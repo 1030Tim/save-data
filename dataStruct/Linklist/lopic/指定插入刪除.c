@@ -1,72 +1,130 @@
-// 建立大小為n的list並append 或是 pop指定位置
 #include <stdio.h>
 #include <stdlib.h>
 
+// Node
 struct Node
 {
     int val;
     struct Node *next;
 };
 
-void append(struct Node **head, struct Node **end, const int index,const int value)
+// add
+void add(struct Node **head, struct Node **end, const int index, const int value)
 {
+    // define new Node
     struct Node *addNode = malloc(sizeof(struct Node));
-    
     addNode->val = value;
     addNode->next = NULL;
-
+    // except index == 0
     if (index == 0)
     {
+        if ((*head) == NULL) // except list size = 0
+        {
+            *head = addNode;
+            *end = addNode;
+            return;
+        }
         addNode->next = *head;
         *head = addNode;
-
-        if (*end == NULL) *end = addNode;
         return;
     }
-    // 連接Node
-    struct Node *p = *head;
-    for (int i = 0; (i<index-1 && p!=NULL); ++i)
-    {
-        p = p->next; // 只更新到index-1 , i = index-1 = p->next
-    }
 
+    // Search index-1
+    struct Node *p = *head;
+    for (int i = 0;  (i<index-1&& p->next!=NULL); ++i)
+    {
+        p = p->next;
+    }
+    // modify the link
     addNode->next = p->next;
     p->next = addNode;
-
-    if (*end == NULL) *end = addNode;
-
+    if (addNode->next == NULL)
+    {
+        *end = addNode;
+    }
 }
 
-int main(void)
+// pop
+void pop(struct Node **head, struct Node **end, const int index)
 {
-    struct Node *head = NULL;
-    struct Node *end = NULL;
-    int n;
-    scanf("%d",&n);
+
+    // serch to index -1 the modify link
+    struct Node *p = *head;
+    // except index = 0
+    if (index == 0)
+    {
+        struct Node *temp = *head;
+        if (*head == *end)
+        {
+            *head = NULL;
+            *end = NULL;
+            free(temp);
+            return;
+        }
+    }
+    for (int i = 0; (i<index-1 && p!=NULL); ++i)
+    {
+        p = p->next;
+    }
+    // modify
+    struct Node *temp = p->next;
+    p->next = temp->next;
+    if (temp == NULL)
+    {
+        *end = p;
+    }
+    free(temp);
+}
+
+
+// define new list
+void list(struct Node **head, struct Node **end, int n)
+{
     while (n--)
     {
         struct Node *newNode = malloc(sizeof(struct Node));
         scanf("%d", &newNode->val);
         newNode->next = NULL;
-        
-        // 串起全部
-        if (head == NULL)
+
+        if (*head == NULL)
         {
-            head = newNode;
-            end = newNode;
+            *head = newNode;
+            *end = newNode;
         }
         else
         {
-            end->next = newNode;
-            end = newNode;
+            (*end)->next = newNode;
+            *end = newNode;
         }
     }
-    int k,v;
-    scanf("%d%d",&k,&v);
-    append(&head,&end,k,v);
-    // print
-    for (struct Node *p = head; p != NULL; p = p->next)
+}
+// print
+void print(struct Node **head)
+{
+    for (struct Node *p = *head; p != NULL; p = p->next)
     {
-        printf("%d ",p->val);
+        printf("%d ", p->val);
     }
+}
+
+int main(void)
+{
+    int n;
+    scanf("%d",&n);
+    // define head and end
+    struct Node *head = NULL;
+    struct Node *end = NULL;
+    // list
+    list(&head, &end, n);
+    // add
+    int index,value;
+    printf("please enter append index and value\n");
+    scanf("%d%d",&index, &value);
+    add(&head, &end, index, value);
+    // pop
+    printf("please enter remove index\n");
+    scanf("%d",&index);
+    pop(&head, &end, index);
+    print(&head);
+    return 0;
 }
