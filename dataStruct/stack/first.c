@@ -1,53 +1,47 @@
+// i have push 10 value for stack, then print all value
 #include <stdio.h>
 
-void push(int* top, int value, int arr[])
+int stack[9];
+int top = -1;
+
+// pop to stack
+int pop()
 {
-    if (*top < 5)
+    if (top <= -1)
     {
-        arr[++*top] = value;
+        printf("Underflow\n");
+        return 0;
     }
-    else return;
-}
-void pop(int* top, int arr[])
-{
-    if (*top > -1)
-        arr[*top--] = -1;
-    else return;
+    //printf("%d ", top);
+    int temp = stack[top];
+    stack[top--] = -1;
+    return temp;
 }
 
-int main()
+// push to stack
+void push(int value)
 {
-    int top = -1, count = 0;
-    int arr[10];
-    
-
-    while (top < 5)
+    if (top >= 9)
     {
-        char ans[5];
-        printf("push or pop\n");
-        scanf("%s", ans);
-        
-        if (ans[1] == 'u')
-        {
-            int k;
-            printf("enter data \n");
-            scanf("%d", &k);
-            push(&top,k,arr);
-            ++top;
-            //printf("%c ",ans[1]);
-        }
-        
-        else
-        {
-            pop(&top, arr);
-            --top;
-        }
-
+        printf("Overflow\n");
+        return;
     }
-    printf("==========\n");
+    stack[++top] = value;
+    return;
+}
+
+// main of program
+int main(void)
+{
     for (int i = 0; i<10; ++i)
     {
-        printf("%d ",arr[i]);
+        int value;
+        scanf("%d", &value);
+        push(value);
+    }
+    for (int i = 0; i<10; ++i)
+    {
+        printf("%d ", pop());
     }
     return 0;
 }

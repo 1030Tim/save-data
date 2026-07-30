@@ -1,0 +1,52 @@
+// digraph G {
+//     A -> B;
+//     B -> C;
+//     A -> C;
+// }
+// dot -Tpng test.dot -o output.png
+
+// 資料夾結構
+digraph G 
+{
+    graph [bgcolor="white"];
+
+    // 第一層分類
+    File [
+        shape=box,
+        style="filled",
+        fillcolor="lightblue",
+        color="blue"
+    ];
+
+    資安 [
+        shape=folder,
+        style="filled",
+        fillcolor="lightgreen"
+    ];
+
+    daly [
+        shape=folder,
+        style="filled",
+        fillcolor="lightgreen"
+    ];
+
+    dataStruct [
+        shape=folder,
+        style="filled",
+        fillcolor="lightgreen"
+    ];
+
+    python [
+        shape=folder,
+        style="filled",
+        fillcolor="lightgreen"
+    ];
+
+
+    File -> 資安;
+    File -> daly;
+    File -> dataStruct;
+    File -> python;
+    File -> test;
+    File -> output;
+}
