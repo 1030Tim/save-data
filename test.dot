@@ -1,52 +1,157 @@
-// digraph G {
-//     A -> B;
-//     B -> C;
-//     A -> C;
-// }
-// dot -Tpng test.dot -o output.png
-
-// 資料夾結構
-digraph G 
-{
+digraph G {
     graph [bgcolor="white"];
-
-    // 第一層分類
-    File [
-        shape=box,
-        style="filled",
-        fillcolor="lightblue",
-        color="blue"
-    ];
-
-    資安 [
-        shape=folder,
-        style="filled",
-        fillcolor="lightgreen"
-    ];
-
-    daly [
-        shape=folder,
-        style="filled",
-        fillcolor="lightgreen"
-    ];
-
-    dataStruct [
-        shape=folder,
-        style="filled",
-        fillcolor="lightgreen"
-    ];
-
-    python [
-        shape=folder,
-        style="filled",
-        fillcolor="lightgreen"
-    ];
-
-
-    File -> 資安;
-    File -> daly;
-    File -> dataStruct;
-    File -> python;
-    File -> test;
-    File -> output;
+    graph [rankdir=TB];
+    "." [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./.vscode" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./.vscode";
+    "./AI" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./AI";
+    "./apcs" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./apcs";
+    "./daly" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./daly";
+    "./dataStruct" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./dataStruct";
+    "./ruby" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./ruby";
+    "./thepy" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./thepy";
+    "./熱身" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./熱身";
+    "./資安" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "." -> "./資安";
+    "./README.md" [shape=box, style="filled", fillcolor="lightblue"];
+    "." -> "./README.md";
+    "./output.png" [shape=box, style="filled", fillcolor="lightblue"];
+    "." -> "./output.png";
+    "./run" [shape=box, style="filled", fillcolor="lightblue"];
+    "." -> "./run";
+    "./test.dot" [shape=box, style="filled", fillcolor="lightblue"];
+    "." -> "./test.dot";
+    "./test.py" [shape=box, style="filled", fillcolor="lightblue"];
+    "." -> "./test.py";
+    "./.vscode/settings.json" [shape=box, style="filled", fillcolor="lightblue"];
+    "./.vscode" -> "./.vscode/settings.json";
+    "./AI/GD" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./AI" -> "./AI/GD";
+    "./AI/lopic" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./AI" -> "./AI/lopic";
+    "./AI/pthon" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./AI" -> "./AI/pthon";
+    "./AI/GD/Grand-Desciend.h" [shape=box, style="filled", fillcolor="lightblue"];
+    "./AI/GD" -> "./AI/GD/Grand-Desciend.h";
+    "./AI/GD/main.cpp" [shape=box, style="filled", fillcolor="lightblue"];
+    "./AI/GD" -> "./AI/GD/main.cpp";
+    "./AI/lopic/House" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./AI/lopic" -> "./AI/lopic/House";
+    "./AI/lopic/Titanic" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./AI/lopic" -> "./AI/lopic/Titanic";
+    "./AI/lopic/Titanic/app.ipynb" [shape=box, style="filled", fillcolor="lightblue"];
+    "./AI/lopic/Titanic" -> "./AI/lopic/Titanic/app.ipynb";
+    "./AI/lopic/Titanic/test.csv" [shape=box, style="filled", fillcolor="lightblue"];
+    "./AI/lopic/Titanic" -> "./AI/lopic/Titanic/test.csv";
+    "./AI/lopic/Titanic/train.csv" [shape=box, style="filled", fillcolor="lightblue"];
+    "./AI/lopic/Titanic" -> "./AI/lopic/Titanic/train.csv";
+    "./apcs/b964.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./apcs" -> "./apcs/b964.c";
+    "./apcs/b965.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./apcs" -> "./apcs/b965.c";
+    "./daly/version.md" [shape=box, style="filled", fillcolor="lightblue"];
+    "./daly" -> "./daly/version.md";
+    "./dataStruct/Linklist" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct" -> "./dataStruct/Linklist";
+    "./dataStruct/stack" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct" -> "./dataStruct/stack";
+    "./dataStruct/瘋狂的基礎" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct" -> "./dataStruct/瘋狂的基礎";
+    "./dataStruct/labalTable.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct" -> "./dataStruct/labalTable.c";
+    "./dataStruct/note.md" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct" -> "./dataStruct/note.md";
+    "./dataStruct/run" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct" -> "./dataStruct/run";
+    "./dataStruct/Linklist/lopic" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/Linklist" -> "./dataStruct/Linklist/lopic";
+    "./dataStruct/Linklist/1.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist" -> "./dataStruct/Linklist/1.c";
+    "./dataStruct/Linklist/note.md" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist" -> "./dataStruct/Linklist/note.md";
+    "./dataStruct/Linklist/run" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist" -> "./dataStruct/Linklist/run";
+    "./dataStruct/Linklist/lopic/待做" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/Linklist/lopic" -> "./dataStruct/Linklist/lopic/待做";
+    "./dataStruct/Linklist/lopic/刪除第一個點.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic" -> "./dataStruct/Linklist/lopic/刪除第一個點.c";
+    "./dataStruct/Linklist/lopic/尾端插入.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic" -> "./dataStruct/Linklist/lopic/尾端插入.c";
+    "./dataStruct/Linklist/lopic/建立與走訪.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic" -> "./dataStruct/Linklist/lopic/建立與走訪.c";
+    "./dataStruct/Linklist/lopic/指定刪除.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic" -> "./dataStruct/Linklist/lopic/指定刪除.c";
+    "./dataStruct/Linklist/lopic/指定插入.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic" -> "./dataStruct/Linklist/lopic/指定插入.c";
+    "./dataStruct/Linklist/lopic/指定插入刪除.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic" -> "./dataStruct/Linklist/lopic/指定插入刪除.c";
+    "./dataStruct/Linklist/lopic/總和.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic" -> "./dataStruct/Linklist/lopic/總和.c";
+    "./dataStruct/Linklist/lopic/待做/刪除指定值" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic/待做" -> "./dataStruct/Linklist/lopic/待做/刪除指定值";
+    "./dataStruct/Linklist/lopic/待做/反轉串列" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic/待做" -> "./dataStruct/Linklist/lopic/待做/反轉串列";
+    "./dataStruct/Linklist/lopic/待做/合併兩個串列" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic/待做" -> "./dataStruct/Linklist/lopic/待做/合併兩個串列";
+    "./dataStruct/Linklist/lopic/待做/雙指標技巧" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/Linklist/lopic/待做" -> "./dataStruct/Linklist/lopic/待做/雙指標技巧";
+    "./dataStruct/stack/linklist" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/stack" -> "./dataStruct/stack/linklist";
+    "./dataStruct/stack/ValidParentheses.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/stack" -> "./dataStruct/stack/ValidParentheses.c";
+    "./dataStruct/stack/first.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/stack" -> "./dataStruct/stack/first.c";
+    "./dataStruct/stack/run" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/stack" -> "./dataStruct/stack/run";
+    "./dataStruct/stack/linklist/output" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/stack/linklist" -> "./dataStruct/stack/linklist/output";
+    "./dataStruct/stack/linklist/first.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/stack/linklist" -> "./dataStruct/stack/linklist/first.c";
+    "./dataStruct/stack/linklist/output/first.dSYM" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/stack/linklist/output" -> "./dataStruct/stack/linklist/output/first.dSYM";
+    "./dataStruct/stack/linklist/output/first" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/stack/linklist/output" -> "./dataStruct/stack/linklist/output/first";
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/stack/linklist/output/first.dSYM" -> "./dataStruct/stack/linklist/output/first.dSYM/Contents";
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents" -> "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources";
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Info.plist" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents" -> "./dataStruct/stack/linklist/output/first.dSYM/Contents/Info.plist";
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/DWARF" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources" -> "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/DWARF";
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/Relocations" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources" -> "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/Relocations";
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/DWARF/first" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/DWARF" -> "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/DWARF/first";
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/Relocations/aarch64" [shape=folder, style="filled", fillcolor="lightgreen"];
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/Relocations" -> "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/Relocations/aarch64";
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/Relocations/aarch64/first.yml" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/Relocations/aarch64" -> "./dataStruct/stack/linklist/output/first.dSYM/Contents/Resources/Relocations/aarch64/first.yml";
+    "./dataStruct/瘋狂的基礎/1.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./dataStruct/瘋狂的基礎" -> "./dataStruct/瘋狂的基礎/1.c";
+    "./ruby/HelloWorld.rb" [shape=box, style="filled", fillcolor="lightblue"];
+    "./ruby" -> "./ruby/HelloWorld.rb";
+    "./thepy/re.py" [shape=box, style="filled", fillcolor="lightblue"];
+    "./thepy" -> "./thepy/re.py";
+    "./熱身/stack.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./熱身" -> "./熱身/stack.c";
+    "./熱身/二分搜尋.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./熱身" -> "./熱身/二分搜尋.c";
+    "./熱身/快排.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./熱身" -> "./熱身/快排.c";
+    "./資安/first.c" [shape=box, style="filled", fillcolor="lightblue"];
+    "./資安" -> "./資安/first.c";
+    "./資安/helloworld" [shape=box, style="filled", fillcolor="lightblue"];
+    "./資安" -> "./資安/helloworld";
+    "./資安/helloworld.asm" [shape=box, style="filled", fillcolor="lightblue"];
+    "./資安" -> "./資安/helloworld.asm";
+    "./資安/note.txt" [shape=box, style="filled", fillcolor="lightblue"];
+    "./資安" -> "./資安/note.txt";
 }

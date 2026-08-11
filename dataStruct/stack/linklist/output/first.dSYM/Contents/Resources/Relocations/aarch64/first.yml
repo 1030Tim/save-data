@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/juhn/Desktop/save-data-main/dataStruct/stack/linklist/output/first'
+relocations:     []
+...
