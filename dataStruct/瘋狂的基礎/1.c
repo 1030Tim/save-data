@@ -1,59 +1,61 @@
 // 1. 建立linklist
 // 2. 插入 add(index, value)
 // 3. 刪除 del(index)
-
 #include <stdio.h>
 #include <stdlib.h>
 
-
-struct Node *start = NULL;
+struct Node *head = NULL;
 struct Node *end = NULL;
-
 struct Node
 {
-    int value;
-    struct Node *next;
+    int value; // 裡面的值
+    struct Node *next; // 存放下一個的值
 };
 
-void add(const int index, const int value)
+void newNodes(int n)
 {
-    // 先指向要的位置   
-    int count = 0;
-    struct Node *p = start;
-    for (p = start; (p!=NULL && count == index-1); p = p->next)
-    {
-        ++count;
-    }
-    
-
-}   
-
-int main(void)
-{
-    int n;
-    scanf("%d", &n);
-
     while (n--)
     {
-        // 建立新的連結
-        struct Node *newNode = malloc(sizeof(struct Node));
-        scanf("%d", &newNode->value);
+        struct Node *newNode = malloc(sizeof(struct Node)); // 開一個新的節點   
+        scanf("%d", &newNode->value); // 賦予值給新節點
         newNode->next = NULL;
-        
-        // 與所有的做連接
-        if (start == NULL)
+
+        // 嫁接
+        if (head == NULL) // 假設還沒有串列
         {
-            start = newNode;
+            head = newNode; // 設定為開始值
             end = newNode;
         }
-        else
+        else 
         {
-            end->next = newNode;
-            end = newNode;
+            end->next = newNode; // 前一個值的下一個替換
+            end = newNode; // 串上去
         }
     }
+}
 
-    for (struct Node *p = start; p!=NULL; p = p->next)
+void add(int index, const int value)
+{ // 缺少判定index = 0
+    int count = 0;
+    struct Node *p = NULL;
+    for (p = head; (count < index-1 && p!=NULL); p = p->next) ++count;
+    struct Node *newNode = malloc(sizeof(struct Node));
+    newNode->value = value;
+    newNode->next = p->next->next;
+    p->next = newNode;
+}
+
+int main()
+{
+    int n; // 建立幾個陣列
+    scanf("%d", &n);
+
+    newNodes(n);
+   
+    struct Node *p = NULL;
+
+    add(0,77);
+    for (p = head; p!=NULL; p = p->next)
     {
         printf("%d ", p->value);
     }
